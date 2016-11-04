@@ -1,0 +1,33 @@
+{
+    "name":              "abcflorida/bctown",
+    "description":       "A foundation framework container for auth/admin/menu/plugin etc",
+    "type":              "library",
+    "license":           "MIT",
+    "version":           "1.0.0-dev",
+    "homepage":          "https://github.com/abcflorida/bctown",
+    "keywords":          [
+        "laravel app framework",
+        "ecommerce",
+        "multisite"
+    ],
+    "authors": [
+        {
+            "name":     "Brian Clinton",
+            "email":    "flbrianc@gmail.com",
+            "homepage": "http://abcflorida.github.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.4,<7.0"
+    },
+    "autolad": {
+        "classmap": [
+        "src/Providers",
+        "src/Controllers"
+        ],
+        "psr-4": {
+            "Bctown\\": "src/"
+        }
+    }
+   
+}
