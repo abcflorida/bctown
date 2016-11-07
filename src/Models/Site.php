@@ -10,10 +10,7 @@ class Site extends Model
     //
     protected $table = 'site';
     protected $primaryKey = 'site_id';
-    
     protected $siteid;
-    
-    
     public $timestamps = false;
     
     public static function setSiteId($siteID) {

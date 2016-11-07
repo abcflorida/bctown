@@ -5,7 +5,7 @@ namespace Bctown\Middleware;
 use Closure;
 use Illuminate\Contracts\Foundation\Application;
 use Symfony\Component\HttpKernel\Exception\HttpException;
-use Bctown\Models\Site;
+//use Bctown\Models\Site;
 use Bctown\Controllers\BctownController;
 
 class SiteMiddleware
@@ -56,7 +56,7 @@ class SiteMiddleware
         
         //echo $this->app['Bctown']->getSite();
        
-        $siteid = Site::getSiteIdFromDomain( $this->app['Bctown']->getSite() );
+        $siteid = BctownController::getSiteIdFromDomain( $this->app['Bctown']->getSite() );
         
         
        if ( !$siteid  ) {

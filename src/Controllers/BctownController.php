@@ -5,9 +5,10 @@ namespace Bctown\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller as Controller;
 use Bctown\Models\Site as Site;
+use Bctown\Interfaces\SiteInterface;
 use Session;
 
-class BctownController extends Controller
+class BctownController extends Controller implements SiteInterface 
 {
     
     private $sitedomain;
@@ -42,6 +43,12 @@ class BctownController extends Controller
             
         //dd ( $request );
         echo 'where are we?';
+        
+    }
+    
+    public static function getSiteIDFromDomain($siteDomain) {
+        
+        return Site::getSiteIdFromDomain($siteDomain);
         
     }
 }
