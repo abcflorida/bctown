@@ -19,8 +19,6 @@ class Site extends Model
     
     public static function getSiteIdFromDomain ( $sitedomain ) {
         
-        //echo 'siteid' . $sitedomain;
-        
         if ( $site = Self::where('domainname', $sitedomain)->get(['site_id']) ) {
             
             $firstsiterow = $site->filter(function($item) {
@@ -28,8 +26,6 @@ class Site extends Model
             })->first();
         
             Self::setSiteId( $firstsiterow['site_id'] );
-            
-            //$this->getSiteAttributes();
             
             return $firstsiterow['site_id'];
             

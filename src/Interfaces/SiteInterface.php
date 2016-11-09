@@ -3,25 +3,55 @@ namespace Bctown\Interfaces;
 
 interface SiteInterface {
 
-/** Defined from session 
 
- @param string  $siteDomain Value of the current domain being processed
- *  
+/** 
  * 
-*/
+ * Get the Domain from the _SERVER array
+ * 
+ */    
+public function getSiteDomain();
 
 /**
-     * Adds data to cache
-     *
-     * @param string $objectId    Name of object to store in cache
-     * @param mixed  $objectValue Data to store in cache
-     * @param mixed  $lifetime    Lifetime of cache file
-     * @param string $group       Name of cache group.
-     * @param array  $params      Parameters that distinct cache files.
-     * @param array  $files       Name of files that are checked if cache is valid.
-     * @return bool               True if cache was created, false if cache was not created
-     */
+* Set the domain name from the _SERVER array 
+*/
+public function setSiteDomain();
 
+/**
+* Get SiteID from database lookup using domainname as primary key 
+*
+* @param string $siteDomain    Domain from the _SERVER array
+
+*/
 public static function getSiteIDFromDomain ( $siteDomain );
+
+/**
+* Get Site attributes from database lookup using domainname as primary key 
+*/
+public function getSiteAttributes ();
+
+/**
+ * 
+ * Set SESSION variables
+ * 
+ */
+public function setSiteAttributesToSession ();
+
+/** 
+ * Check to see if the site is available
+ */
+public function isSiteActive ();
+
+/* 
+ * Go get the site modules that are available - may not be used
+ */
+public function getSiteModules ();
+
+/*
+ * Add site modules to session or something 
+*/
+public function setSiteModules ();
+
+
+
 
 }

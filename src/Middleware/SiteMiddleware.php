@@ -56,7 +56,7 @@ class SiteMiddleware
         
         //echo $this->app['Bctown']->getSite();
        
-        $siteid = BctownController::getSiteIdFromDomain( $this->app['Bctown']->getSite() );
+        $siteid = BctownController::getSiteIdFromDomain( $this->app['Bctown']->getSiteDomain() );
         
         
        if ( !$siteid  ) {

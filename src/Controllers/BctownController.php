@@ -11,44 +11,63 @@ use Session;
 class BctownController extends Controller implements SiteInterface 
 {
     
-    private $sitedomain;
+    private $siteDomain;
     
     public function __construct( )
     {
-        $this->setSite();
+            
+        $this->setSiteDomain();
         $this->setSiteAttributesToSession();
         
         //dd ( session()->all() );
     }
     
-    public function setSite() {
+    
+    public function getSiteDomain() {
         
-        $this->sitedomain = \Config::get('app.site');
+        return $this->siteDomain;
+    }
+    
+    public function setSiteDomain() {
+        
+        $this->siteDomain = \Config::get('app.site');
         Session::put('site',\Config::get('app.site'));
     
     }
     
-    public function getSite() {
+    
+    
+    public static function getSiteIDFromDomain($siteDomain) {
         
-        return $this->sitedomain;
+       return Site::getSiteIdFromDomain($siteDomain);
+        
+    }
+    
+    public function isSiteActive() {
+        
+        return true;
+        
     }
     
     public function setSiteAttributesToSession () {
         
-       Session::put('sitedomain','bctown.com');
+       Session::put('sitedomain',$this->siteDomain);
+       
     }
     
-    
-    function index ( Request $request ) {
-            
-        //dd ( $request );
-        echo 'where are we?';
+    public function getSiteAttributes () {
+        
+        return ["attr1"=>"value1", "attr2"=>"value2"];
         
     }
     
-    public static function getSiteIDFromDomain($siteDomain) {
+    public function getSiteModules () {}
+    
+
+    public function setSiteModules () {}  
+    
+    public function index() {
         
-        return Site::getSiteIdFromDomain($siteDomain);
-        
+        echo 'index ';
     }
 }
